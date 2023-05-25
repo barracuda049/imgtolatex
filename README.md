@@ -11,7 +11,7 @@ dataset are presented below. Dataset contains a total of 154,944 images and LaTe
 length is varied from 1 to 2177 symbols. Each image in the dataset is a 1-channel image with a resolution that depends on the length of the formula and varies from 3 × 3 pixels to 1020 × 644 pixels.
 
 <p align="center">
-    <img src="./imgs/stacking_not.png" width="1000" />
+    <img src="./img/data_sample.jpeg" width="700" />
 </p>
 
 ## Model architecture
