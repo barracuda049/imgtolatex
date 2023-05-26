@@ -178,7 +178,7 @@ Examples of target and predicted formulas
 </p>
 
 ## Paper and Presentation
-Image to $\LaTeX\:$ final project defence in deep learning course (25 May 2023, Eng, [slides](./presentation/ImgToLaTeX_paper.pdf), [paper](./paper/ImgToLaTeX_presentation.pdf))
+Image to $\LaTeX\:$ final project defence in deep learning course (25 May 2023, Eng, [slides](./presentation/ImgToLaTeX_presentation.pdf), [paper](./paper/ImgToLaTeX_paper.pdf))
 
 ## Summary
 In this work a neural transducer model with visual attention is presented. It learns to generate
