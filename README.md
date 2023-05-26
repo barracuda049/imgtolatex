@@ -77,6 +77,106 @@ Finally, ViT decoder gave the best performance, it was used in testing procedure
 ROUGE metrics evaluation on testing procedure
 </p>
 
+<p align="center">
+    <img src="./imgs/Gen1.png" width="500" />
+</p>
+
+<p align="center">
+    #1 predicted formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Tar1.png" width="700" />
+</p>
+
+<p align="center">
+    #1 target formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Gen2.png" width="500" />
+</p>
+
+<p align="center">
+    #2 predicted formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Tar2.png" width="600" />
+</p>
+
+<p align="center">
+    #2 target formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Gen3.png" width="500" />
+</p>
+
+<p align="center">
+    #3 predicted formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Tar3.png" width="600" />
+</p>
+
+<p align="center">
+    #3 target formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Gen4.png" width="500" />
+</p>
+
+<p align="center">
+    #4 predicted formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Tar4.png" width="600" />
+</p>
+
+<p align="center">
+    #4 target formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Gen5.png" width="500" />
+</p>
+
+<p align="center">
+    #5 predicted formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Tar5.png" width="600" />
+</p>
+
+<p align="center">
+    #6 target formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Gen6.png" width="500" />
+</p>
+
+<p align="center">
+    #6 predicted formula
+</p>
+
+<p align="center">
+    <img src="./imgs/Tar6.png" width="600" />
+</p>
+
+<p align="center">
+    #6 target formula
+</p>
+
+<p align="center">
+Examples of target and predicted formulas
+</p>
+
 ## Paper and Presentation
 Image to $\LaTeX\:$ final project defence in deep learning course (25 May 2023, Eng, [slides](./presentation/ImgToLaTeX_paper.pdf), [paper](./paper/ImgToLaTeX_presentation.pdf))
 
