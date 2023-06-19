@@ -22,7 +22,7 @@ class Transformer(nn.Module):
         
 
         self.decoder = Decoder(vocab_size, max_length,d_model, num_heads,n_blocks,
-                               mul, dropout)
+                               mul, dropout, device)
         
         self.mlp = nn.Sequential(
             nn.Linear(d_model, hidden_size),
