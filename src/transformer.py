@@ -18,11 +18,11 @@ class Transformer(nn.Module):
         else:
             super().__init__()
             self.encoder = ViTEncoder(d_model, num_heads, n_blocks, 
-                                      mul, patch_size, img_size, is_conv)
+                                      mul, patch_size, img_size, is_conv, device = device)
         
 
         self.decoder = Decoder(vocab_size, max_length,d_model, num_heads,n_blocks,
-                               mul, dropout)
+                               mul, dropout, device = device)
         
         self.mlp = nn.Sequential(
             nn.Linear(d_model, hidden_size),
@@ -40,4 +40,4 @@ class Transformer(nn.Module):
         output = self.mlp(tgt)
 
         return output
-    
+

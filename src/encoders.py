@@ -47,8 +47,42 @@ class MHA(nn.Module):
         output = self.drop(self.W_o(output))
 
         return output
-    
-    
+
+
+class LinMHA(nn.Module):
+    def __init__(self, d_model, num_heads, dropout = 0.1):
+        super().__init__()
+
+        assert d_model % num_heads == 0, 'd_model must be divisible by the number of heads'
+
+        self.dk = d_model // num_heads
+
+        self.scale = self.dk ** -0.5
+
+        self.num_heads = num_heads
+
+        self.W_q = nn.Linear(d_model, d_model, bias= False)
+        self.W_k = nn.Linear(d_model, d_model, bias= False)
+        self.W_v = nn.Linear(d_model, d_model, bias= False)
+        self.W_o = nn.Linear(d_model, d_model)
+
+        self.drop = nn.Dropout(dropout)
+        
+    def forward(self, q, k, v):
+
+        B, seq_length, C = q.shape
+        B_src, seg_tar, _ = k.shape
+        q = self.W_q(q).view(B, seq_length, self.num_heads, self.dk).transpose(1,2)
+        k = self.W_k(k).view(B, seg_tar, self.num_heads, self.dk).transpose(1,2)
+        v = self.W_v(v).view(B, seg_tar, self.num_heads, self.dk).transpose(1,2)
+        
+        G = k.transpose(-2, -1) * self.scale @ v
+        
+        out = q *  self.scale @ G
+        out = self.W_o(out.transpose(1,2).contiguous().view(B, seq_length, C))
+
+        return out
+
 
 
 class EncoderLayer(nn.Module):
@@ -81,7 +115,7 @@ class EncoderLayer(nn.Module):
 
 class ViTEncoder(nn.Module):
 
-    def __init__(self, d_model, num_heads, n_blocks, mul = 4,patch_size = 16, img_size = 224, is_conv = False):
+    def __init__(self, d_model, num_heads, n_blocks, mul = 4,patch_size = 16, img_size = 224, is_conv = False, device = 'cpu'):
 
         
         super().__init__()
@@ -102,7 +136,7 @@ class ViTEncoder(nn.Module):
             ) 
 
 
-            self.pos = nn.Parameter(torch.randn(1, (img_size // patch_size)**2, d_model))
+            self.pos = nn.Parameter(torch.randn(1, (img_size // patch_size)**2, d_model, device = device))
 
 
         self.blocks = nn.Sequential(
@@ -167,9 +201,9 @@ class CnnEncoder(nn.Module):
         for param in self.last_conv.parameters():
             
             param.requires_grad_(True)
-        
+
     
-    
+
         
 
         

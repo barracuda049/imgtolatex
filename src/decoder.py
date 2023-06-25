@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from encoders import MHA
+from encoders import MHA, LinMHA
 
 class Decoderlayer(nn.Module):
 
@@ -41,7 +41,7 @@ class Decoderlayer(nn.Module):
         x = self.norm3(x + self.dropout(ff_out))
         
         return x
-    
+
 
 class Decoder(nn.Module):
 
